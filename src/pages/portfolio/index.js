@@ -1,16 +1,56 @@
 import React from "react"
-// import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 // import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 // import { rhythm } from "../../utils/typography"
 
-const PortfolioPage = ({location}) => (
+const PortfolioPage = ({ data, location }) => {
+  const projects = data.allMarkdownRemark.edges
+  return (
     <Layout location={location} title="TITLE">
-        <SEO title="Portfolio Page" />
-        <div>PORTFOLIO PAGE</div>
+      <SEO title="Portfolio Page" />
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            {projects.map(({ node }) => {
+              const title = node.frontmatter.title
+            return <p>{title}</p>
+            })}
+          </div>
+        </div>
+      </div>
     </Layout>
-)
+  )
+}
 
 export default PortfolioPage
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "^/portfolio/" } } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`

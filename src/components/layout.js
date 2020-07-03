@@ -10,7 +10,7 @@ const Layout = ({ location, title, children }) => {
   return (
     <div>
       <Navbar />
-      <main>{children}</main>
+      <main class="has-navbar-fixed-top">{children}</main>
       <Footer />
     </div>
   )

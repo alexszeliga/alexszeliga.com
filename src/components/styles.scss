@@ -1,2 +1,6 @@
 @charset "utf-8";
-@import "~bulma/bulma.sass"
+@import "~bulma/bulma.sass";
+
+main.has-navbar-fixed-top {
+    padding-top: $navbar-height;
+}
