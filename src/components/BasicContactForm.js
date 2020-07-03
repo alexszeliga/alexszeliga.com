@@ -1,6 +1,6 @@
 import React from "react"
 
-export default class FooterContactForm extends React.Component {
+export default class BasicContactForm extends React.Component {
   state = {
     email: "",
     message: "",

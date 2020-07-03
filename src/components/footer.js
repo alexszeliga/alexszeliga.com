@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import FooterContactForm from "../components/FooterContactForm"
+import BasicContactForm from "../components/BasicContactForm"
 
 const Footer = () => {
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
             </aside>
           </div>
           <div className="column is-6">
-            <FooterContactForm />
+            <BasicContactForm />
           </div>
         </div>
 
