@@ -16,7 +16,13 @@ const PortfolioPage = ({ data, location }) => {
           <div className="column">
             {projects.map(({ node }) => {
               const title = node.frontmatter.title
-            return <p>{title}</p>
+              const html = node.html
+            return (
+              <div>
+                <p>{title}</p>
+                <div dangerouslySetInnerHTML={{__html:html}}></div>
+              </div>
+              )
             })}
           </div>
         </div>
@@ -49,6 +55,7 @@ export const pageQuery = graphql`
             title
             description
           }
+          html
         }
       }
     }

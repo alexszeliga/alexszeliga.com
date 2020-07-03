@@ -35,13 +35,14 @@ const Footer = () => {
               <p className="menu-label">FIND ME</p>
               <ul className="">
                 <li>
-                  <a target="_blank" href="https://github.com/alexszeliga">
+                  <a target="_blank" rel="noreferrer" href="https://github.com/alexszeliga">
                     GitHub
                   </a>
                 </li>
                 <li>
                   <a
                     target="_blank"
+                    rel="noreferrer" 
                     href="https://www.linkedin.com/in/alex-szeliga-1ab93423"
                   >
                     LinkedIn

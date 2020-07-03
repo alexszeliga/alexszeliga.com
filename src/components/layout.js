@@ -4,9 +4,7 @@ import Navbar from "./Navbar"
 import Footer from "./footer"
 import "./styles.scss"
 
-const Layout = ({ location, title, children }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-
+const Layout = ({ children }) => {
   return (
     <div>
       <Navbar />

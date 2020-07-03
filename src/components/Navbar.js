@@ -29,8 +29,7 @@ const Navbar = class extends React.Component {
             <a className="navbar-item" href="/">
               Home
             </a>
-            <a
-              role="button"
+            <button
               className={`navbar-burger burger ${this.state.navBarClass}`}
               aria-label="menu"
               aria-expanded="false"
@@ -42,7 +41,7 @@ const Navbar = class extends React.Component {
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
-            </a>
+            </button>
           </div>
           <div
             className={`navbar-menu ${this.state.navBarClass}`}
@@ -61,6 +60,7 @@ const Navbar = class extends React.Component {
                 className="navbar-item"
                 href="https://github.com/alexszeliga/"
                 target="_blank"
+                rel="noreferrer"
               >
                 GitHub
               </a>
