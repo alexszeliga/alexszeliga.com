@@ -1,19 +1,16 @@
 import React from "react"
-import { Image } from "gatsby"
-
-const Hero = class extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
-
-    render () {
-        return (
-            <div>
-                I'm a hero.
-            </div>
-        )
-    }
+import BackgroundImage from "gatsby-background-image"
+const Hero = ({ children, heroFluid }) => {
+  return (
+    <BackgroundImage fluid={heroFluid} >
+      <div className="hero is-fullheight">
+        <div className="hero-body">
+          <div className="container">
+            {children}
+          </div>
+        </div>
+      </div>
+    </BackgroundImage>
+  )
 }
-
 export default Hero
