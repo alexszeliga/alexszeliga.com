@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 // import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
-import Hero from "../../components/hero"
+import Hero from "../../components/Hero"
 // import { rhythm } from "../../utils/typography"
 
 const BlogIndexPage = ({ data, location }) => {
