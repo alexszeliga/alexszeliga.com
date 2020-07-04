@@ -20,30 +20,32 @@ const BlogIndexPage = ({ data, location }) => {
           The sometimes coherent ramblings of a developer and technologist
         </h2>
       </Hero>
-      <div className="container">
-        <div className="columns">
-          <div className="column">
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <article key={node.fields.slug}>
-                  <h3>
-                    <Link to={node.fields.slug}>{title}</Link>
-                  </h3>
-                  <p>{node.frontmatter.date}</p>
-                  <div>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
-                  </div>
-                </article>
-              )
-            })}
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              {posts.map(({ node }) => {
+                const title = node.frontmatter.title || node.fields.slug
+                return (
+                  <article key={node.fields.slug}>
+                    <h3>
+                      <Link to={node.fields.slug}>{title}</Link>
+                    </h3>
+                    <p>{node.frontmatter.date}</p>
+                    <div>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

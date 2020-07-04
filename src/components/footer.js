@@ -5,11 +5,10 @@ import BasicContactForm from "../components/BasicContactForm"
 
 const Footer = () => {
   return (
-    <footer className="has-background-grey-lighter py-5">
+    <footer className="footer has-background-grey-lighter">
       <div className="container">
         <div className="columns">
           <div className="column is-3">
-            <aside className="menu">
               <p className="menu-label">SITE</p>
               <ul className="">
                 <li>
@@ -28,10 +27,8 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </aside>
           </div>
           <div className="column is-3">
-            <aside className="menu">
               <p className="menu-label">FIND ME</p>
               <ul className="">
                 <li>
@@ -49,9 +46,8 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </aside>
           </div>
-          <div className="column is-6">
+          <div className="column">
             <BasicContactForm />
           </div>
         </div>

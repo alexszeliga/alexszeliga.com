@@ -11,22 +11,22 @@ const PortfolioPage = ({ data, location }) => {
   return (
     <Layout location={location} title="TITLE">
       <SEO title="Portfolio Page" />
-      <div className="container">
-        <div className="columns">
-          <div className="column">
+      <section className="section">
+        <div className="container">
+          <div className="columns is-multiline">
             {projects.map(({ node }) => {
               const title = node.frontmatter.title
               const html = node.html
-            return (
-              <div>
-                <p>{title}</p>
-                <div dangerouslySetInnerHTML={{__html:html}}></div>
-              </div>
+              return (
+                <div className="column is-half">
+                  <p>{title}</p>
+                  <div dangerouslySetInnerHTML={{ __html: html }}></div>
+                </div>
               )
             })}
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }
