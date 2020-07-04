@@ -1,15 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Alex Szeliga`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Alex Szeliga`,
+      summary: `A web developer and technology strategy professional`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    description: `The personal website and blog of developer and technology strategy professional, Alex Szeliga.`,
+    siteUrl: `https://alexszeliga.com/`,
   },
   plugins: [
     `gatsby-plugin-sass`,
