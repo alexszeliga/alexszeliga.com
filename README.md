@@ -7,8 +7,8 @@ And finally, I wanted to use a CSS framework to help me develop branding and des
 - Bulma
 - Nav, hero, footer, and a basic contact form
 - Blog index page, portfolio index page, home page
-## Todo:
 - Build portfolio schema and query
+## Todo:
 - Build portfolio index page components
 - Build blog index page components
 - Hero variation for interior pages

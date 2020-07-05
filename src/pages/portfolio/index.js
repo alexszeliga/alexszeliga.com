@@ -8,23 +8,28 @@ import SEO from "../../components/seo"
 // import { rhythm } from "../../utils/typography"
 
 const PortfolioPage = ({ data, location }) => {
+  const title = data.site.siteMetadata.title
   const projects = data.allMarkdownRemark.edges
   return (
-    <Layout location={location} title="TITLE">
+    <Layout location={location} title={title}>
       <SEO title="Portfolio Page" />
       <section className="section">
         <div className="container">
           <div className="columns is-multiline">
             {projects.map(({ node }) => {
-              const title = node.frontmatter.title
-              const html = node.html
               const portImageFluid = node.frontmatter.image.childImageSharp.fluid
+              const projectTitle = node.frontmatter.title
+              const projectDescription = node.frontmatter.description
+              const projectUrl = node.frontmatter.projectUrl
               return (
                 <div className="column is-half">
-                  <p>{title}</p>
+                  <p>{projectTitle}</p>
+                  <p>{projectDescription}</p>
+                  <a href={projectUrl} target="_blank" rel="noreferrer">
                   <Img
                     fluid={portImageFluid}
                   />
+                  </a>
                 </div>
               )
             })}
@@ -50,14 +55,11 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
-          }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            projectUrl
             image {
               childImageSharp {
                 fluid(quality:100, maxWidth:640) {
@@ -66,7 +68,6 @@ export const pageQuery = graphql`
               }
             }
           }
-          html
         }
       }
     }
