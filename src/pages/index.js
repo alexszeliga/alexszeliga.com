@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home Page" />
-      <Hero heroFluid={heroFluid}>
+      <Hero heroFluid={heroFluid} fullHeight>
         <h1 className="title has-text-light">{pageContent.hero.title}</h1>
         <h2 className="subtitle has-text-light">{pageContent.hero.subtitle}</h2>
       </Hero>

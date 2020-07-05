@@ -8,10 +8,12 @@ And finally, I wanted to use a CSS framework to help me develop branding and des
 - Nav, hero, footer, and a basic contact form
 - Blog index page, portfolio index page, home page
 - Build portfolio schema and query
+- Hero variation for interior pages
 ## Todo:
+- Home page module for blog
+- Home page content (about me?)
 - Build portfolio index page components
 - Build blog index page components
-- Hero variation for interior pages
 - Add blog and portfolio content
 - Finalize branding and design
   - Footer

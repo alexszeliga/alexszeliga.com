@@ -1,9 +1,9 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
-const Hero = ({ children, heroFluid }) => {
+const Hero = ({ children, heroFluid, fullHeight }) => {
   return (
     <BackgroundImage fluid={heroFluid} >
-      <div className="hero is-fullheight">
+      <div className={ fullHeight ? "hero is-fullheight" : "hero"}>
         <div className="hero-body">
           <div className="container">
             {children}
