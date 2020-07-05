@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 // import Bio from "../../components/bio"
 import Layout from "../../components/layout"
@@ -17,10 +18,13 @@ const PortfolioPage = ({ data, location }) => {
             {projects.map(({ node }) => {
               const title = node.frontmatter.title
               const html = node.html
+              const portImageFluid = node.frontmatter.image.childImageSharp.fluid
               return (
                 <div className="column is-half">
                   <p>{title}</p>
-                  <div dangerouslySetInnerHTML={{ __html: html }}></div>
+                  <Img
+                    fluid={portImageFluid}
+                  />
                 </div>
               )
             })}
@@ -54,6 +58,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            image {
+              childImageSharp {
+                fluid(quality:100, maxWidth:640) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
           html
         }
