@@ -9,11 +9,17 @@ And finally, I wanted to use a CSS framework to help me develop branding and des
 - Blog index page, portfolio index page, home page
 - Build portfolio schema and query
 - Hero variation for interior pages
+- Build blog index page components
+  - establish layout
 ## Todo:
 - Home page module for blog
 - Home page content (about me?)
 - Build portfolio index page components
 - Build blog index page components
+  - populate menu (blocked by tags)
+- Reinstate tags
+  - Add tags field to blog posts frontmatter.
+  - Add tag filtering to blog index page
 - Add blog and portfolio content
 - Finalize branding and design
   - Footer

@@ -1,3 +1,4 @@
+const _ = require('lodash')
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -20,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
           }
@@ -48,6 +50,10 @@ exports.createPages = async ({ graphql, actions }) => {
         next,
       },
     })
+  })
+  let tags = []
+  posts.forEach((edge)=>{
+
   })
 }
 

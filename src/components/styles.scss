@@ -5,6 +5,15 @@ main.has-navbar-fixed-top {
     padding-top: $navbar-height;
 }
 
+.hero {
+    display: flex;
+    min-height: 300px;
+}
+
+.hero-body {
+    display: flex;
+    align-items: center;
+}
 .hero.is-fullheight {
     min-height: calc(100vh - #{$navbar-height});
 }

@@ -5,12 +5,15 @@ import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import Hero from "../../components/Hero"
+import BlogCard from "../../components/blogCard"
 // import { rhythm } from "../../utils/typography"
 
 const BlogIndexPage = ({ data, location }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.blogPostMarkdown.edges
+  // const featuredPost = featuredPost ? featuredPost : posts.shift()
   const siteTitle = data.site.siteMetadata.title
   const heroFluid = data.heroImage.childImageSharp.fluid
+  const blogTags = data.blogPostMarkdown.tags
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Portfolio Page" />
@@ -20,27 +23,28 @@ const BlogIndexPage = ({ data, location }) => {
           The sometimes coherent ramblings of a developer and technologist
         </h2>
       </Hero>
-      <section className="section">
+      <section className="section" id="featured-blog-post">
         <div className="container">
           <div className="columns">
             <div className="column">
-              {posts.map(({ node }) => {
-                const title = node.frontmatter.title || node.fields.slug
-                return (
-                  <article key={node.fields.slug}>
-                    <h3>
-                      <Link to={node.fields.slug}>{title}</Link>
-                    </h3>
-                    <p>{node.frontmatter.date}</p>
-                    <div>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: node.frontmatter.description || node.excerpt,
-                        }}
-                      />
-                    </div>
-                  </article>
-                )
+              <BlogCard key={posts[0].node.fields.slug} post={posts[0]} />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section" id="blog-index">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-3">
+              {blogTags.map(tag => {
+                return <p>{tag.fieldValue}: <span>{tag.totalCount}</span></p>
+              })}
+            </div>
+            <div className="column is-9">
+              {posts.map((post, i)=>{
+                if (i !== 0) {
+                  return <BlogCard key={post.node.fields.slug} post={post} />
+                }
               })}
             </div>
           </div>
@@ -59,10 +63,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    blogPostMarkdown: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { slug: { regex: "^/blog/" } } }
     ) {
+      tags: group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           excerpt
@@ -72,7 +80,6 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-            description
           }
         }
       }

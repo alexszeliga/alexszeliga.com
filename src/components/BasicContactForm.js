@@ -30,9 +30,9 @@ export default class BasicContactForm extends React.Component {
             ></textarea>
           </div>
         </div>
-        <div class="field is-grouped is-grouped-right">
-          <p class="control">
-            <button class="button is-light">Send</button>
+        <div className="field is-grouped is-grouped-right">
+          <p className="control">
+            <button className="button is-light">Send</button>
           </p>
         </div>
       </form>
