@@ -7,7 +7,7 @@ export default class BasicContactForm extends React.Component {
   }
   render() {
     return (
-      <form>
+      <form action="https://getform.io/f/e792c058-235e-4f86-9c16-c5e1ef0ff9af" method="POST">
         <div className="field">
           <p className="menu-label">Email</p>
           <div className="control">
