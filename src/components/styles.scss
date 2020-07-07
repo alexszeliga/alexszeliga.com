@@ -2,7 +2,7 @@
 @import "~bulma/bulma.sass";
 
 main.has-navbar-fixed-top {
-    padding-top: $navbar-height;
+    // padding-top: $navbar-height;
 }
 
 .hero {
@@ -15,5 +15,5 @@ main.has-navbar-fixed-top {
     align-items: center;
 }
 .hero.is-fullheight {
-    min-height: calc(100vh - #{$navbar-height});
+    // min-height: calc(100vh - #{$navbar-height});
 }
