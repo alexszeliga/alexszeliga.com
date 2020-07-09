@@ -5,7 +5,7 @@ module.exports = {
       name: `Alex Szeliga`,
       summary: `A web developer and technology strategy professional`,
     },
-    description: `The personal website and blog of developer and technology strategy professional, Alex Szeliga.`,
+    description: `The personal website and blog of developer and technology strategist, Alex Szeliga.`,
     siteUrl: `https://alexszeliga.com/`,
   },
   plugins: [

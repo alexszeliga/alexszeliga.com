@@ -11,19 +11,20 @@ And finally, I wanted to use a CSS framework to help me develop branding and des
 - Hero variation for interior pages
 - Build blog index page components
   - establish layout
+- Reinstate tags
+  - Add tags field to blog posts frontmatter.
+  - Create pages for tags
+- Deploy static site on GCP using Cloud Storage
+- Build blog index page components
+  - Add tag filtering to blog index page
 ## Todo:
 - Home page module for blog
 - Home page content (about me?)
-- Build portfolio index page components
-- Build blog index page components
-  - populate menu (blocked by tags)
-- Reinstate tags
-  - Add tags field to blog posts frontmatter.
-  - Add tag filtering to blog index page
+- Refine portfolio index page components
+- refine blog card component
 - Add blog and portfolio content
 - Finalize branding and design
   - Footer
   - Menu
   - Logo
   - Images
-- Deploy static site on GCP using Cloud Storage

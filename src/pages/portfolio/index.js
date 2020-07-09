@@ -24,8 +24,9 @@ const PortfolioPage = ({ data, location }) => {
               const projectTitle = node.frontmatter.title
               const projectDescription = node.frontmatter.description
               const projectUrl = node.frontmatter.projectUrl
+              const id = node.id
               return (
-                <div className="column is-half">
+                <div key={id} className="column is-half">
                   <p>{projectTitle}</p>
                   <p>{projectDescription}</p>
                   <a href={projectUrl} target="_blank" rel="noreferrer">
@@ -65,6 +66,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          id
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title

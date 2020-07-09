@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Eliminate duplicate tags
   tags = _.uniq(tags)
   tags.forEach((tag) => {
-    const tagPath = `/blog/${_.kebabCase(tag)}`
+    const tagPath = `/blog/tag/${_.kebabCase(tag)}`
     createPage({
       path: tagPath,
       component: path.resolve(`src/templates/tag-page.js`),

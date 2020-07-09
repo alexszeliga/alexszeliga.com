@@ -1,28 +1,34 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import BlogCard from "../components/blogCard"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const TagPageTemplate = ({ data, pageContext, location }) => {
-    const totalCount = data.allMarkdownRemark.totalCount
-    const tag = "code"
-    const siteTitle = data.site.siteMetadata.title
+  const totalCount = data.allMarkdownRemark.totalCount
+  const siteTitle = data.site.siteMetadata.title
+  const blogPosts = data.allMarkdownRemark.edges
 
-    return (
-        <Layout location={location} title={siteTitle}>
-          <SEO title={pageContext.tag} description={"description"}/>
-          <section className="section">
-            <div className="container">
-              <div className="columns">
-                <div className="column">
-                  <h1 class="title">Blog posts on: {pageContext.tag}</h1>
-                </div>
-              </div>
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title={pageContext.tag} description={"description"} />
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <h1 class="title">Blog posts on: {pageContext.tag}</h1>
+              <h2 className="subtitle">Number of Posts: {totalCount}</h2>
+              {blogPosts.map((post, i) => {
+                return <BlogCard key={post.node.fields.slug} post={post} />
+
+              })}
             </div>
-          </section>
-        </Layout>
-    )
+          </div>
+        </div>
+      </section>
+    </Layout>
+  )
 }
 
 export const pageQuery = graphql`

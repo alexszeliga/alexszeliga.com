@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import _ from "lodash"
+
 
 // import Bio from "../../components/bio"
 import Layout from "../../components/layout"
@@ -36,9 +38,11 @@ const BlogIndexPage = ({ data, location }) => {
         <div className="container">
           <div className="columns">
             <div className="column is-3">
+              <ul>
               {blogTags.map(tag => {
-                return <p>{tag.fieldValue}: <span>{tag.totalCount}</span></p>
+                return <li key={_.kebabCase(tag.fieldValue)}><Link to={`/blog/tag/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}: <span>{tag.totalCount}</span></Link></li>
               })}
+              </ul>
             </div>
             <div className="column is-9">
               {posts.map((post, i)=>{
