@@ -8,11 +8,11 @@ const BlogCard = ({post}) => {
     const date = post.node.frontmatter.date
     return (
       <div className="">
-        <Link className="" to={slug}>
-          <p className="title is-4">{title}</p>
-        </Link>
-        <p className="title is-6">{date}</p>
-        <p>{excerpt}</p>
+        
+          <h1 className="title is-4">{title}</h1>
+        <h2 className="title is-6">{date}</h2>
+        <p className="is-size-5 has-text-weight-light">{excerpt}</p>
+        <Link className="" to={slug}>Read More...</Link>
       </div>
     )
 }

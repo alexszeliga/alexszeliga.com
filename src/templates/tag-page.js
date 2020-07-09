@@ -17,7 +17,7 @@ const TagPageTemplate = ({ data, pageContext, location }) => {
         <div className="container">
           <div className="columns">
             <div className="column">
-              <h1 class="title">Blog posts on: {pageContext.tag}</h1>
+              <h1 className="title">Blog posts on: {pageContext.tag}</h1>
               <h2 className="subtitle">Number of Posts: {totalCount}</h2>
               {blogPosts.map((post, i) => {
                 return <BlogCard key={post.node.fields.slug} post={post} />

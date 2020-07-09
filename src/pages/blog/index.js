@@ -25,34 +25,26 @@ const BlogIndexPage = ({ data, location }) => {
           The sometimes coherent ramblings of a developer and technologist
         </h2>
       </Hero>
-      <section className="section" id="featured-blog-post">
-        <div className="container">
-          <div className="columns">
-            <div className="column">
-              <BlogCard key={posts[0].node.fields.slug} post={posts[0]} />
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="section" id="blog-index">
         <div className="container">
           <div className="columns">
-            <div className="column is-3">
-              <aside className="menu">
-              <p className="menu-label">Blogs by Tag</p>
-              <ul className="menu-list">
-              {blogTags.map(tag => {
-                return <li className="" key={_.kebabCase(tag.fieldValue)}><Link to={`/blog/tag/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link></li>
-              })}
-              </ul>
-              </aside>
-            </div>
-            <div className="column is-9">
-              {posts.map((post, i)=>{
-                if (i !== 0) {
+
+            <div className="column is-10">
+              {posts.map((post, i) => {
+
                   return <BlogCard key={post.node.fields.slug} post={post} />
-                }
+                
               })}
+            </div>
+            <div className="column is-2">
+              <aside className="menu">
+                <p className="menu-label">Blogs by Tag</p>
+                <ul className="menu-list">
+                  {blogTags.map(tag => {
+                    return <li className="" key={_.kebabCase(tag.fieldValue)}><Link to={`/blog/tag/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link></li>
+                  })}
+                </ul>
+              </aside>
             </div>
           </div>
         </div>
@@ -80,7 +72,7 @@ export const pageQuery = graphql`
       }
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 250)
           fields {
             slug
           }
