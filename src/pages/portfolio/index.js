@@ -13,8 +13,8 @@ const PortfolioPage = ({ data, location }) => {
     <Layout location={location} title={title}>
       <SEO title="Portfolio Page" />
       <Hero heroFluid={heroFluid}>
-        <h1 className="title has-text-light">Portfolio</h1>
-        <h2 className="subtitle has-text-light">Standing on the shoulders of giants, surrounded by giants.</h2>
+        <h1 className="title is-2 has-text-light">Portfolio</h1>
+        <h2 className="subtitle is-3 has-text-light">Standing on the shoulders of giants, surrounded by giants.</h2>
       </Hero>
       <section className="section">
         <div className="container">

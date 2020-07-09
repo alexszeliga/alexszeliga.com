@@ -46,11 +46,13 @@ query TagPage($tag: String) {
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
           }
           frontmatter {
             title
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

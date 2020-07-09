@@ -20,8 +20,8 @@ const BlogIndexPage = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Portfolio Page" />
       <Hero heroFluid={heroFluid}>
-        <h1 className="title has-text-light">My Blog</h1>
-        <h2 className="subtitle has-text-light">
+        <h1 className="title is-2 has-text-light">My Blog</h1>
+        <h2 className="subtitle is-3 has-text-light">
           The sometimes coherent ramblings of a developer and technologist
         </h2>
       </Hero>
@@ -38,11 +38,14 @@ const BlogIndexPage = ({ data, location }) => {
         <div className="container">
           <div className="columns">
             <div className="column is-3">
-              <ul>
+              <aside className="menu">
+              <p className="menu-label">Blogs by Tag</p>
+              <ul className="menu-list">
               {blogTags.map(tag => {
-                return <li key={_.kebabCase(tag.fieldValue)}><Link to={`/blog/tag/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}: <span>{tag.totalCount}</span></Link></li>
+                return <li className="" key={_.kebabCase(tag.fieldValue)}><Link to={`/blog/tag/${_.kebabCase(tag.fieldValue)}`}>{tag.fieldValue}</Link></li>
               })}
               </ul>
+              </aside>
             </div>
             <div className="column is-9">
               {posts.map((post, i)=>{
