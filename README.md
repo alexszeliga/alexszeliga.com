@@ -17,14 +17,17 @@ And finally, I wanted to use a CSS framework to help me develop branding and des
 - Deploy static site on GCP using Cloud Storage
 - Build blog index page components
   - Add tag filtering to blog index page
+- refine blog card component
 ## Todo:
-- Home page module for blog
+- Home page module for blog (might move to the icebox)
 - Home page content (about me?)
 - Refine portfolio index page components
-- refine blog card component
 - Add blog and portfolio content
 - Finalize branding and design
   - Footer
   - Menu
   - Logo
   - Images
+## Icebox:
+- Rich blog content
+  - specify caption and possible classes for internal elements
