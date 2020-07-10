@@ -11,7 +11,7 @@ const NotFoundPage = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="404" />
+      <SEO dangerouslySetAllPagesToNoFollow dangerouslySetAllPagesToNoIndex title="404" />
       <Hero heroFluid={heroFluid} fullHeight>
         <h1 className="title has-text-light">Not Found</h1>
         <h2 className="subtitle has-text-light">You just hit a route that doesn&#39;t exist...the sadness.</h2>

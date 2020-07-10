@@ -10,6 +10,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve:`gatsby-plugin-robots-txt`,
+      options: {
+        host: 'https://alexszeliga.com/',
+        policy: [{ userAgent: '*', disallow: '/'}]
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

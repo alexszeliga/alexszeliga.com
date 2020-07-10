@@ -11,7 +11,7 @@ const BlogIndex = ({ data, location }) => {
   const pageContent = data.pageContent.frontmatter
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home Page" />
+      <SEO dangerouslySetAllPagesToNoFollow dangerouslySetAllPagesToNoIndex title="Home Page" />
       <Hero heroFluid={heroFluid} fullHeight>
         <h1 className="title has-text-light">{pageContent.hero.title}</h1>
         <h2 className="subtitle has-text-light">{pageContent.hero.subtitle}</h2>
