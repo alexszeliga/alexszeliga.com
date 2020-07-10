@@ -26,14 +26,18 @@ const PortfolioPage = ({ data, location }) => {
               const projectUrl = node.frontmatter.projectUrl
               const id = node.id
               return (
-                <div key={id} className="column is-half">
-                  <p>{projectTitle}</p>
-                  <p>{projectDescription}</p>
+                <div key={id} className="column is-half mb-6">
+                  <h1 className="title is-4">{projectTitle}</h1>
+                  <p className="has-text-weight-light mb-4">{projectDescription}</p>
                   <a href={projectUrl} target="_blank" rel="noreferrer">
                     <Img
                       fluid={portImageFluid}
                     />
                   </a>
+                  <div className="">
+                    <a className="button">Deployed Project</a>
+                    <a className="button">Project Repository</a>
+                  </div>
                 </div>
               )
             })}
