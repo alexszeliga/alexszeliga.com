@@ -29,14 +29,16 @@ const PortfolioPage = ({ data, location }) => {
                 <div key={id} className="column is-half mb-6">
                   <h1 className="title is-4">{projectTitle}</h1>
                   <p className="has-text-weight-light mb-4">{projectDescription}</p>
-                  <Img
-                    fluid={portImageFluid}
+                  <Img 
+                    fluid={{...portImageFluid, aspectRatio: 1.5825}}
                   />
-                  <div className="">
+                  <div className="buttons mt-4">
                     {
-                      projectUrls.map(link => {
+                      projectUrls.map(({linkUrl, linkLabel, isInternalLink}) => {
+                        const target = isInternalLink ? `` : `_blank`
+                        const rel = isInternalLink ? `` : `noopener noreferrer`
                         return (
-                        <a className="button" href={link.linkUrl}>{link.linkLabel}</a>
+                        <a className="button" href={linkUrl} target={target} rel={rel}>{linkLabel}</a>
                         )
                       })
                     }
@@ -81,6 +83,7 @@ export const pageQuery = graphql`
             projectUrls {
               linkLabel
               linkUrl
+              isInternalLink
             }
             image {
               childImageSharp {
