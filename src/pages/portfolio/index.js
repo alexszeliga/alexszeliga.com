@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../../components/layout"
@@ -23,20 +23,23 @@ const PortfolioPage = ({ data, location }) => {
               const portImageFluid = node.frontmatter.image.childImageSharp.fluid
               const projectTitle = node.frontmatter.title
               const projectDescription = node.frontmatter.description
-              const projectUrl = node.frontmatter.projectUrl
+              const projectUrls = node.frontmatter.projectUrls || []
               const id = node.id
               return (
                 <div key={id} className="column is-half mb-6">
                   <h1 className="title is-4">{projectTitle}</h1>
                   <p className="has-text-weight-light mb-4">{projectDescription}</p>
-                  <a href={projectUrl} target="_blank" rel="noreferrer">
-                    <Img
-                      fluid={portImageFluid}
-                    />
-                  </a>
+                  <Img
+                    fluid={portImageFluid}
+                  />
                   <div className="">
-                    <a className="button">Deployed Project</a>
-                    <a className="button">Project Repository</a>
+                    {
+                      projectUrls.map(link => {
+                        return (
+                        <a className="button" href={link.linkUrl}>{link.linkLabel}</a>
+                        )
+                      })
+                    }
                   </div>
                 </div>
               )
@@ -75,7 +78,10 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
-            projectUrl
+            projectUrls {
+              linkLabel
+              linkUrl
+            }
             image {
               childImageSharp {
                 fluid(quality:100, maxWidth:640) {
