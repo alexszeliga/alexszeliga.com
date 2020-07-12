@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../../components/layout"
@@ -19,14 +19,13 @@ const PortfolioPage = ({ data, location }) => {
       <section className="section">
         <div className="container">
           <div className="columns is-multiline">
-            {projects.map(({ node }) => {
+            {projects.map(({ node },i) => {
               const portImageFluid = node.frontmatter.image.childImageSharp.fluid
               const projectTitle = node.frontmatter.title
               const projectDescription = node.frontmatter.description
               const projectUrls = node.frontmatter.projectUrls || []
-              const id = node.id
               return (
-                <div key={id} className="column is-half mb-6">
+                <div key={i} className="column is-half mb-6">
                   <h1 className="title is-4">{projectTitle}</h1>
                   <p className="has-text-weight-light mb-4">{projectDescription}</p>
                   <Img 
@@ -34,11 +33,11 @@ const PortfolioPage = ({ data, location }) => {
                   />
                   <div className="buttons mt-4">
                     {
-                      projectUrls.map(({linkUrl, linkLabel, isInternalLink}) => {
+                      projectUrls.map(({linkUrl, linkLabel, isInternalLink},i) => {
                         const target = isInternalLink ? `` : `_blank`
                         const rel = isInternalLink ? `` : `noopener noreferrer`
                         return (
-                        <a className="button" href={linkUrl} target={target} rel={rel}>{linkLabel}</a>
+                        <a className="button" key={i} href={linkUrl} target={target} rel={rel}>{linkLabel}</a>
                         )
                       })
                     }
