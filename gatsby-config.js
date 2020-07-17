@@ -5,19 +5,11 @@ module.exports = {
       name: `Alex Szeliga`,
       summary: `A web developer and technology strategy professional`,
     },
-    description: `The personal website and blog of developer and technology strategy professional, Alex Szeliga.`,
+    description: `The personal website and blog of developer and technology strategist, Alex Szeliga.`,
     siteUrl: `https://alexszeliga.com/`,
   },
   plugins: [
     `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,
-    {
-      resolve:`gatsby-plugin-robots-txt`,
-      options: {
-        host: 'https://alexszeliga.com/',
-        policy: [{ userAgent: '*', disallow: '/'}]
-      }
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -58,7 +50,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
         trackingId: `UA-172946681-1`,
         head: true,
