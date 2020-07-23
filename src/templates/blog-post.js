@@ -19,6 +19,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+      {console.log(pageContext.id)}
       <Hero heroFluid={heroFluid}>
         <h1 className="title is-2 has-text-light">
           {post.frontmatter.title}
@@ -46,7 +47,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $tags: [String]) {
+  query BlogPostBySlug($slug: String!, $tags: [String], $id: String!) {
     site {
       siteMetadata {
         title
@@ -69,7 +70,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    relatedPosts: allMarkdownRemark(filter: {frontmatter: { tags: {in: $tags}}}) {
+    relatedPosts: allMarkdownRemark(filter: {frontmatter: {tags: {in: $tags}}, id: {ne: $id}}) {
       nodes {
         fields {
           slug
