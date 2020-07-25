@@ -12,7 +12,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const heroFluid = data.heroImage.childImageSharp.fluid
-  const relatedPosts = _.uniqBy(data.relatedPosts.nodes, "id")
+  const relatedPosts = _.uniqBy(data.relatedPosts.nodes, "id").filter((post)=>{
+    return post.id !== pageContext.id
+  }) || []
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -47,7 +49,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $tags: [String], $id: String!) {
+  query BlogPostBySlug($slug: String!, $tags: [String]) {
     site {
       siteMetadata {
         title
@@ -70,13 +72,13 @@ export const pageQuery = graphql`
         }
       }
     }
-    relatedPosts: allMarkdownRemark(filter: {frontmatter: {tags: {in: $tags}}, id: {ne: $id}}) {
+    relatedPosts: allMarkdownRemark(filter: {frontmatter: {tags: {in: $tags}}}) {
       nodes {
         fields {
           slug
         }
         id
-        excerpt (pruneLength: 300)
+        excerpt (pruneLength: 200)
         frontmatter {
           title
         }
