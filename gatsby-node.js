@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions }) => {
         allMarkdownRemark(
           limit: 1000
           sort: { fields: frontmatter___date, order: DESC }
-          filter: { fields: { slug: { regex: "^/blog/" } } }
+          filter: { fields: { slug: { regex: "^/blog/" } }, frontmatter: {draft: {ne: true}} }
         ) {
           edges {
             node {

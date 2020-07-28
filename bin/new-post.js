@@ -36,7 +36,7 @@ function createPost(path, postType, frontmatter) {
 function createFrontMatter(postType, postName) {
     switch (postType) {
         case "blog":
-            return `---\ntitle: ${postName}\ndate: "${now}"\ndescription: A Description\ntags:\n  - Default\n  - Tags\n---`;
+            return `---\ntitle: ${postName}\ndate: "${now}"\ndraft: true\ndescription: A Description\ntags:\n  - Default\n  - Tags\n---`;
         case "portfolio":
             return `---\ntitle: ${postName}\ndate: "${now}"\ndescription: A brief description of the project\nprojectUrls:\n  [\n    {\n      linkUrl: "/",\n      linkLabel: "Deployed Project",\n      isInternalLink: true,\n    },\n  ]\nimage: ./[filename].[jpg/png]\n---`;
         default:
