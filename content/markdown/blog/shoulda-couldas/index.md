@@ -2,6 +2,7 @@
 title: Shoulda Couldas
 date: "2020-07-23T22:40:32.169Z"
 description: An old friend asks me to take a trip down memory lane. Thanks, I hate it.
+draft: true
 tags:
   - Collaboration
   - Music

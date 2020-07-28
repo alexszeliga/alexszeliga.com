@@ -18,7 +18,7 @@ const BlogIndexPage = ({ data, location }) => {
   const blogTags = data.blogPostMarkdown.tags
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Portfolio Page" />
+      <SEO title="Blog Page" />
       <Hero heroFluid={heroFluid}>
         <h1 className="title is-2 has-text-light">My Blog</h1>
         <h2 className="subtitle is-3 has-text-light">
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
     }
     blogPostMarkdown: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { regex: "^/blog/" } } }
+      filter: { fields: { slug: { regex: "^/blog/" } }, frontmatter: { draft: { ne: true }} }
     ) {
       tags: group(field: frontmatter___tags) {
         fieldValue

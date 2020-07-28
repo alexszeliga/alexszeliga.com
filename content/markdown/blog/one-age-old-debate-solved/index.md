@@ -18,7 +18,7 @@ I believe that the work of a developer is mostly creative, so I take a lot of in
 
 But it was a PC, because of my context...also because I could never afford a Mac.
 #### Okay, but 2020 tho?
-You're damn right it is. It's 2020 and Apple has [announced](https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/) that it's going to use it's own ARM based silicon. 
+You're damn right it is. It's 2020 and Apple has [announced](https://www.apple.com/newsroom/2020/06/apple-announces-mac-transition-to-apple-silicon/) that it's going to use it's own silicon. 
 
 ![No!](./ZDS4.gif)
 
@@ -26,6 +26,6 @@ Meanwhile, Microsoft is out here, not so quietly [influencing](https://www.zdnet
 
 But that's just part of it. For the past several years, Microsoft has been slowly but surely building out a set of tools that will become very valuable in the next several years. Specifically, [WSL2](https://docs.microsoft.com/en-us/windows/wsl/wsl2-about).
 
-So for those of you keeping score, Apple will spend the next several years throwing lots of resources into transitioning it's existing products to work on the ARM instruction set, and Windows has Linux built in already. Apple has spent the last several years adding 'features' like the touch bar and a confusing lack of ports, but I think we can safely say that we should expect nothing drastic to change until the transition to ARM is complete. And does that mean that the Cheesegrater '19 is going to have the same fate as the Trashcan? Several years of being ignored before being replaced by something with a confusingly short lifespan? Who knows.
+So for those of you keeping score, Apple will spend the next several years throwing lots of resources into transitioning it's existing products to work on a new-ish instruction set, and Windows has Linux built in already. Apple has spent the last several years adding 'features' like the touch bar and a confusing lack of ports, but I think we can safely say that we should expect nothing drastic to change until the transition to Apple Silicon is complete. And does that mean that the Cheesegrater '19 is going to have the same fate as the Trashcan? Several years of being ignored before being replaced by something with a confusingly short lifespan? Who knows.
 
 What I do know is that Microsoft is [scaling back it's retail operations](https://news.microsoft.com/2020/06/26/microsoft-store-announces-new-approach-to-retail/) and focusing on new [weird variants](https://www.extremetech.com/computing/312956-microsoft-may-stream-win32-apps-to-windows-10x-from-the-cloud) of it's core product, Windows 10. Also, Microsoft is not shy about why it's adding Linux to [Windows](https://www.youtube.com/watch?v=Vhh_GeBPOhs).

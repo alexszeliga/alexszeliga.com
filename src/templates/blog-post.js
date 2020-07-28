@@ -21,7 +21,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      {console.log(pageContext.id)}
       <Hero heroFluid={heroFluid}>
         <h1 className="title is-2 has-text-light">
           {post.frontmatter.title}

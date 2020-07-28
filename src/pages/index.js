@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Hero from "../components/Hero"
 import Img from "gatsby-image"
 
@@ -14,6 +14,22 @@ const BlogIndex = ({ data, location }) => {
   const devFluid = data.devImage.childImageSharp.fluid
   const collabFluid = data.collabImage.childImageSharp.fluid
   const faceFluid = data.faceImage.childImageSharp.fluid
+  const blogPosts = data.blog.posts
+  const featuredCategories = ["Code", "Collaboration", "Strategy"]
+  let featuredBlogPosts = []
+
+  featuredCategories.forEach(function(category) {
+    const filteredPosts = blogPosts.filter(function (post) {
+      return post.node.frontmatter.tags.indexOf(category) > -1 && featuredBlogPosts.indexOf(post) === -1
+    })
+    featuredBlogPosts[category] = filteredPosts[0] 
+  })
+
+  console.log(featuredBlogPosts["Code"].node.fields.slug);
+  
+  // blogPosts.map(function (post, i){
+  //   console.log(post.node.frontmatter.tags, i);
+  // })
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home Page" />
@@ -45,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
                 <div className="card-content">
                   <p className="title is-4">A Developer</p>
                   <div className="content">
-                    Stuff goes here?
+                  <Link to={featuredBlogPosts["Code"].node.fields.slug}>{featuredBlogPosts["Code"].node.frontmatter.title}</Link>
                   </div>
                 </div>
               </div>
@@ -58,7 +74,7 @@ const BlogIndex = ({ data, location }) => {
                 <div className="card-content">
                   <p className="title is-4">A Collaborator</p>
                   <div className="content">
-                    Stuff goes here?
+                  <Link to={featuredBlogPosts["Collaboration"].node.fields.slug}>{featuredBlogPosts["Collaboration"].node.frontmatter.title}</Link>
                   </div>
                 </div>
               </div>
@@ -71,7 +87,7 @@ const BlogIndex = ({ data, location }) => {
                 <div className="card-content">
                   <p className="title is-4">A Technology Strategist</p>
                   <div className="content">
-                    Stuff goes here?
+                  <Link to={featuredBlogPosts["Strategy"].node.fields.slug}>{featuredBlogPosts["Strategy"].node.frontmatter.title}</Link>
                   </div>
                 </div>
               </div>
@@ -135,6 +151,20 @@ export const pageQuery = graphql`
         hero {
           title
           subtitle
+        }
+      }
+    }
+    blog:   allMarkdownRemark(limit: 1000, sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {slug: {regex: "^/blog/"}}, frontmatter: {draft: {ne: true}, tags: {in: ["Code", "Strategy", "Collaboration"]}}}) {
+      posts: edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            tags
+          }
+          id
         }
       }
     }
