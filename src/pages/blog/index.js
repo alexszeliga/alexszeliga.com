@@ -18,7 +18,7 @@ const BlogIndexPage = ({ data, location }) => {
   const blogTags = data.blogPostMarkdown.tags
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Blog Page" />
+      <SEO title="Blog Page" description={"The index page for Alex Szeliga's blog about development, technology, and life."} />
       <Hero heroFluid={heroFluid}>
         <h1 className="title is-2 has-text-light">My Blog</h1>
         <h2 className="subtitle is-3 has-text-light">

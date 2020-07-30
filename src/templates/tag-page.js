@@ -16,7 +16,7 @@ const TagPageTemplate = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={pageContext.tag} description={"description"} />
+      <SEO title={pageContext.tag} description={`Blog posts written by Alex Szeliga tagged as '${pageContext.tag}'`} />
       <Hero heroFluid={heroFluid}>
       <h1 className="title is-2 has-text-light">
             {pageContext.tag}

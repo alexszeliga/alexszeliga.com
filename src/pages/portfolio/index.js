@@ -11,7 +11,7 @@ const PortfolioPage = ({ data, location }) => {
   const heroFluid = data.heroImage.childImageSharp.fluid
   return (
     <Layout location={location} title={title}>
-      <SEO title="Portfolio Page" />
+      <SEO title="Portfolio Page" description={'A list of some of the recent projects worked on by Alex Szeliga, a web developer.'}/>
       <Hero heroFluid={heroFluid}>
         <h1 className="title is-2 has-text-light">Portfolio</h1>
         <h2 className="subtitle is-3 has-text-light">Standing on the shoulders of giants, surrounded by giants.</h2>
